@@ -20,6 +20,13 @@
             color: #333;
             margin-bottom: 20px;
         }
+        .search-container {
+            background-color: rgba(255, 255, 255, 0.9); /* Sfondo bianco semitrasparente */
+            padding: 20px;
+            border-radius: 10px;
+            display: inline-block;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1); /* Leggera ombra per il rettangolo */
+        }
         input, button {
             padding: 10px;
             margin: 10px;
@@ -68,11 +75,13 @@
     </style>
 </head>
 <body>
+    <div class="search-container">
     <h1>Trova il tuo Tavolo</h1>
-    <p>Inserisci il tuo Nome e Cognome per sapere a quale tavolo devi sederti:</p>
-    <input type="text" id="name" placeholder="Nome e Cognome">
-    <button onclick="findTable()">Trova Tavolo</button>
-    <div id="result"></div>
+        <p>Inserisci il tuo Nome e Cognome per sapere a quale tavolo devi sederti:</p>
+        <input type="text" id="name" placeholder="Nome e Cognome">
+        <button onclick="findTable()">Trova Tavolo</button>
+        <div id="result"></div>
+    </div>
 
     <div id="table1" class="table-info">
         <img src="john_maynard_keynes.jpg" alt="John Maynard Keynes">
@@ -145,7 +154,9 @@
             "Ezio Di Santo": "table5",
             "Antonella Filippi": "table5",
             "Alessandro Altobelli": "table5",
-            "Valentina Altobelli": "table5",
+            "Valentina Altobelli":
+
+ "table5",
             "Lele": "table5",
             "Giorgia Di Santo": "table5",
         };
