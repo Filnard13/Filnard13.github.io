@@ -1,0 +1,131 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Filippo Nardoni</title>
+  <meta name="description" content="Filippo Nardoni – PhD student in econometrics">
+  <link href="https://fonts.googleapis.com/css2?family=Source+Serif+4:wght@400;600&family=Inter:wght@400;500&display=swap" rel="stylesheet">
+  <style>
+    :root {
+      --bg: #fdfdfc; --text: #1f2328; --muted: #5f6670;
+      --accent: #1a5fb4; --line: #e3e5e8;
+    }
+    @media (prefers-color-scheme: dark) {
+      :root { --bg: #16181c; --text: #e6e8eb; --muted: #9aa1ab;
+              --accent: #78aeff; --line: #2c3036; }
+    }
+    * { box-sizing: border-box; }
+    body {
+      margin: 0; background: var(--bg); color: var(--text);
+      font-family: "Inter", system-ui, sans-serif; line-height: 1.65;
+    }
+    .wrap { max-width: 760px; margin: 0 auto; padding: 0 20px; }
+    nav { border-bottom: 1px solid var(--line); }
+    nav .wrap { display: flex; justify-content: space-between; align-items: center; padding: 16px 20px; flex-wrap: wrap; gap: 8px; }
+    nav .name { font-weight: 500; color: var(--text); text-decoration: none; }
+    nav ul { list-style: none; display: flex; gap: 20px; margin: 0; padding: 0; }
+    nav a { color: var(--muted); text-decoration: none; font-size: 0.95rem; }
+    nav a:hover { color: var(--accent); }
+    header { padding: 56px 0 24px; display: flex; gap: 32px; align-items: center; flex-wrap: wrap; }
+    header img { width: 150px; height: 150px; border-radius: 50%; object-fit: cover; border: 1px solid var(--line); }
+    h1, h2 { font-family: "Source Serif 4", Georgia, serif; font-weight: 600; }
+    h1 { font-size: 2.2rem; margin: 0 0 4px; }
+    h2 { font-size: 1.4rem; margin: 48px 0 12px; padding-bottom: 6px; border-bottom: 1px solid var(--line); }
+    .role { color: var(--muted); margin: 0; }
+    .links { margin-top: 12px; display: flex; gap: 16px; flex-wrap: wrap; }
+    a { color: var(--accent); }
+    .item { margin-bottom: 20px; }
+    .item .title { font-weight: 500; }
+    .item .meta { color: var(--muted); font-size: 0.92rem; }
+    .tags { display: flex; flex-wrap: wrap; gap: 8px; padding: 0; list-style: none; }
+    .tags li { border: 1px solid var(--line); border-radius: 999px; padding: 2px 12px; font-size: 0.9rem; }
+    footer { margin: 64px 0 32px; color: var(--muted); font-size: 0.85rem; }
+  </style>
+</head>
+<body>
+
+  <nav>
+    <div class="wrap">
+      <a class="name" href="#">Filippo Nardoni</a>
+      <ul>
+        <li><a href="#about">About</a></li>
+        <li><a href="#research">Research</a></li>
+        <li><a href="#teaching">Teaching</a></li>
+        <li><a href="#contact">Contact</a></li>
+      </ul>
+    </div>
+  </nav>
+
+  <main class="wrap">
+
+    <header>
+      <!-- Upload a photo named photo.jpg to the repo, or delete this line -->
+      <img src="photo.jpg" alt="Filippo Nardoni" onerror="this.style.display='none'">
+      <div>
+        <h1>Filippo Nardoni</h1>
+        <p class="role">PhD Student in Economics · [Your University]</p>
+        <div class="links">
+          <a href="mailto:filippo.nardoni@gmail.com">Email</a>
+          <a href="cv.pdf">CV</a>
+          <a href="https://github.com/Filnard13">GitHub</a>
+          <a href="#">Google Scholar</a>
+          <a href="#">LinkedIn</a>
+        </div>
+      </div>
+    </header>
+
+    <section id="about">
+      <h2>About</h2>
+      <p>
+        I am a PhD student at [Your University]. My research is in
+        macroeconometrics and financial econometrics, and I also use
+        machine learning methods. [Add a sentence or two about your
+        current work.]
+      </p>
+      <ul class="tags">
+        <li>Macroeconometrics</li>
+        <li>Financial Econometrics</li>
+        <li>Time Series</li>
+        <li>Machine Learning</li>
+      </ul>
+    </section>
+
+    <section id="research">
+      <h2>Research</h2>
+
+      <h3>Working Papers</h3>
+      <div class="item">
+        <div class="title">[Paper title]</div>
+        <div class="meta">with [Coauthor] · 2026 · <a href="#">PDF</a></div>
+        <p>[One- or two-sentence abstract.]</p>
+      </div>
+
+      <h3>Work in Progress</h3>
+      <div class="item">
+        <div class="title">[Project title]</div>
+        <div class="meta">[Short description]</div>
+      </div>
+    </section>
+
+    <section id="teaching">
+      <h2>Teaching</h2>
+      <div class="item">
+        <div class="title">[Course name]</div>
+        <div class="meta">Teaching Assistant · [Semester, Year]</div>
+      </div>
+    </section>
+
+    <section id="contact">
+      <h2>Contact</h2>
+      <p>
+        Email: <a href="mailto:filippo.nardoni@gmail.com">filippo.nardoni@gmail.com</a><br>
+        [Department, University, Address]
+      </p>
+    </section>
+
+    <footer>© 2026 Filippo Nardoni</footer>
+  </main>
+
+</body>
+</html>
