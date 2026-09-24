@@ -5,42 +5,69 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Filippo Nardoni</title>
   <meta name="description" content="Filippo Nardoni – PhD student in econometrics">
-  <link href="https://fonts.googleapis.com/css2?family=Source+Serif+4:wght@400;600&family=Inter:wght@400;500&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Tinos:ital,wght@0,400;0,700;1,400&display=swap" rel="stylesheet">
   <style>
     :root {
       --bg: #fdfdfc; --text: #1f2328; --muted: #5f6670;
-      --accent: #1a5fb4; --line: #e3e5e8;
+      --accent: #1a5fb4; --line: #e3e5e8; --soft: #f3f4f6;
     }
     @media (prefers-color-scheme: dark) {
       :root { --bg: #16181c; --text: #e6e8eb; --muted: #9aa1ab;
-              --accent: #78aeff; --line: #2c3036; }
+              --accent: #78aeff; --line: #2c3036; --soft: #1f2227; }
     }
     * { box-sizing: border-box; }
     body {
       margin: 0; background: var(--bg); color: var(--text);
-      font-family: "Inter", system-ui, sans-serif; line-height: 1.65;
+      font-family: "Times New Roman", Times, "Tinos", serif; font-size: 18px; line-height: 1.6;
     }
     .wrap { max-width: 760px; margin: 0 auto; padding: 0 20px; }
     nav { border-bottom: 1px solid var(--line); }
     nav .wrap { display: flex; justify-content: space-between; align-items: center; padding: 16px 20px; flex-wrap: wrap; gap: 8px; }
-    nav .name { font-weight: 500; color: var(--text); text-decoration: none; }
-    nav ul { list-style: none; display: flex; gap: 20px; margin: 0; padding: 0; }
+    nav .name { font-weight: 700; color: var(--text); text-decoration: none; }
+    nav ul { list-style: none; display: flex; gap: 20px; margin: 0; padding: 0; flex-wrap: wrap; }
     nav a { color: var(--muted); text-decoration: none; font-size: 0.95rem; }
     nav a:hover { color: var(--accent); }
     header { padding: 56px 0 24px; display: flex; gap: 32px; align-items: center; flex-wrap: wrap; }
     header img { width: 150px; height: 150px; border-radius: 50%; object-fit: cover; border: 1px solid var(--line); }
-    h1, h2 { font-family: "Source Serif 4", Georgia, serif; font-weight: 600; }
+    h1, h2, h3 { font-family: "Times New Roman", Times, "Tinos", serif; font-weight: 700; }
     h1 { font-size: 2.2rem; margin: 0 0 4px; }
     h2 { font-size: 1.4rem; margin: 48px 0 12px; padding-bottom: 6px; border-bottom: 1px solid var(--line); }
     .role { color: var(--muted); margin: 0; }
     .links { margin-top: 12px; display: flex; gap: 16px; flex-wrap: wrap; }
     a { color: var(--accent); }
     .item { margin-bottom: 20px; }
-    .item .title { font-weight: 500; }
+    .item .title { font-weight: 700; }
     .item .meta { color: var(--muted); font-size: 0.92rem; }
     .tags { display: flex; flex-wrap: wrap; gap: 8px; padding: 0; list-style: none; }
     .tags li { border: 1px solid var(--line); border-radius: 999px; padding: 2px 12px; font-size: 0.9rem; }
     footer { margin: 64px 0 32px; color: var(--muted); font-size: 0.85rem; }
+
+    /* ---------- Notes section ---------- */
+    .notes-intro { color: var(--muted); margin-top: 0; }
+    .notes-search {
+      width: 100%; padding: 8px 12px; margin: 8px 0 20px;
+      font: inherit; font-size: 0.95rem; color: var(--text);
+      background: var(--bg); border: 1px solid var(--line); border-radius: 8px;
+    }
+    .notes-search:focus { outline: 2px solid var(--accent); outline-offset: 1px; }
+    .course { border: 1px solid var(--line); border-radius: 10px; margin-bottom: 12px; overflow: hidden; }
+    .course > summary {
+      cursor: pointer; list-style: none; padding: 12px 16px;
+      display: flex; justify-content: space-between; align-items: baseline; gap: 12px;
+      background: var(--soft); font-weight: 700;
+    }
+    .course > summary::-webkit-details-marker { display: none; }
+    .course > summary::before { content: "▸"; color: var(--muted); margin-right: 8px; transition: transform .15s; display: inline-block; }
+    .course[open] > summary::before { transform: rotate(90deg); }
+    .course > summary .course-name { flex: 1; }
+    .course > summary .course-meta { color: var(--muted); font-size: 0.85rem; font-weight: 400; white-space: nowrap; }
+    .note-list { list-style: none; margin: 0; padding: 4px 16px 8px; }
+    .note-list li { padding: 10px 0; border-bottom: 1px solid var(--line); }
+    .note-list li:last-child { border-bottom: none; }
+    .note-title { font-weight: 700; }
+    .note-meta { color: var(--muted); font-size: 0.88rem; }
+    .note-meta a { margin-left: 4px; }
+    .notes-empty { color: var(--muted); display: none; }
   </style>
 </head>
 <body>
@@ -52,6 +79,7 @@
         <li><a href="#about">About</a></li>
         <li><a href="#research">Research</a></li>
         <li><a href="#teaching">Teaching</a></li>
+        <li><a href="#notes">Notes</a></li>
         <li><a href="#contact">Contact</a></li>
       </ul>
     </div>
@@ -64,13 +92,11 @@
       <img src="photo.jpg" alt="Filippo Nardoni" onerror="this.style.display='none'">
       <div>
         <h1>Filippo Nardoni</h1>
-        <p class="role">PhD Student in Economics · [Your University]</p>
+        <p class="role">PhD Student in Economics · Aarhus University ACE</p>
         <div class="links">
-          <a href="mailto:filippo.nardoni@gmail.com">Email</a>
+          <a href="mailto:filippo.nardoni@econ.au.dk">Email</a>
           <a href="cv.pdf">CV</a>
           <a href="https://github.com/Filnard13">GitHub</a>
-          <a href="#">Google Scholar</a>
-          <a href="#">LinkedIn</a>
         </div>
       </div>
     </header>
@@ -78,13 +104,11 @@
     <section id="about">
       <h2>About</h2>
       <p>
-        I am a PhD student at [Your University]. My research is in
-        macroeconometrics and financial econometrics, and I also use
-        machine learning methods. [Add a sentence or two about your
-        current work.]
+        I am a PhD student at Aarhus University ACE ~ Aarhus Center for Econometrics ~.
+        My research is in financial econometrics, machine learning  and bootstrap methods.
       </p>
       <ul class="tags">
-        <li>Macroeconometrics</li>
+        <li>Bootstrap</li>
         <li>Financial Econometrics</li>
         <li>Time Series</li>
         <li>Machine Learning</li>
@@ -116,16 +140,116 @@
       </div>
     </section>
 
+    <!-- ================= NOTES =================
+         How to add notes:
+         1. Create a folder called "notes" in your repo and put your PDFs there
+            (e.g. notes/fin-econometrics-garch.pdf).
+         2. Copy one <li>…</li> block below and change title, date and file name.
+         3. For a new course, copy a whole <details class="course">…</details> block.
+         Add "open" to <details> if you want a course expanded by default. -->
+    <section id="notes">
+      <h2>Lecture Notes</h2>
+      <p class="notes-intro">
+        Notes I have taken during my studies. They are personal study notes and may contain errors;
+        corrections are welcome by email.
+      </p>
+
+      <input class="notes-search" type="search" id="notes-search"
+             placeholder="Search notes (e.g. GARCH, bootstrap, cointegration)…"
+             aria-label="Search notes">
+
+      <details class="course" open>
+        <summary>
+          <span class="course-name">Advanced Financial Econometrics</span>
+          <span class="course-meta">[University] · [Year]</span>
+        </summary>
+        <ul class="note-list">
+          <li>
+            <div class="note-title">[Topic, e.g. GARCH models and QML estimation]</div>
+            <div class="note-meta">[Month Year] · <a href="notes/[file-name].pdf">PDF</a></div>
+          </li>
+          <li>
+            <div class="note-title">[Topic, e.g. Multivariate GARCH and portfolio selection]</div>
+            <div class="note-meta">[Month Year] · <a href="notes/[file-name].pdf">PDF</a></div>
+          </li>
+        </ul>
+      </details>
+
+      <details class="course">
+        <summary>
+          <span class="course-name">Macroeconometrics</span>
+          <span class="course-meta">[University] · [Year]</span>
+        </summary>
+        <ul class="note-list">
+          <li>
+            <div class="note-title">[Topic, e.g. Cointegration and the VECM]</div>
+            <div class="note-meta">[Month Year] · <a href="notes/[file-name].pdf">PDF</a></div>
+          </li>
+        </ul>
+      </details>
+
+      <details class="course">
+        <summary>
+          <span class="course-name">Machine Learning</span>
+          <span class="course-meta">[University] · [Year]</span>
+        </summary>
+        <ul class="note-list">
+          <li>
+            <div class="note-title">[Topic, e.g. Lasso and high-dimensional regression]</div>
+            <div class="note-meta">[Month Year] · <a href="notes/[file-name].pdf">PDF</a></div>
+          </li>
+        </ul>
+      </details>
+
+      <p class="notes-empty" id="notes-empty">No notes match your search.</p>
+    </section>
+
     <section id="contact">
       <h2>Contact</h2>
       <p>
-        Email: <a href="mailto:filippo.nardoni@gmail.com">filippo.nardoni@gmail.com</a><br>
-        [Department, University, Address]
+        Email: <a href="mailto:filippo.nardoni@econ.au.dk">filippo.nardoni@econ.au.dk</a><br>
+        Universitetsbyen 51
+        Building 1814 - 471
+        8000 Aarhus C
+        Denmark
       </p>
     </section>
 
     <footer>© 2026 Filippo Nardoni</footer>
   </main>
+
+  <script>
+    // Simple search over the notes: filters by note title and course name.
+    (function () {
+      var input = document.getElementById('notes-search');
+      var empty = document.getElementById('notes-empty');
+      var courses = document.querySelectorAll('#notes .course');
+      if (!input) return;
+
+      input.addEventListener('input', function () {
+        var q = input.value.trim().toLowerCase();
+        var anyVisible = false;
+
+        courses.forEach(function (course) {
+          var courseName = course.querySelector('.course-name').textContent.toLowerCase();
+          var items = course.querySelectorAll('.note-list li');
+          var matches = 0;
+
+          items.forEach(function (li) {
+            var hit = !q || courseName.includes(q) || li.textContent.toLowerCase().includes(q);
+            li.style.display = hit ? '' : 'none';
+            if (hit) matches++;
+          });
+
+          course.style.display = matches ? '' : 'none';
+          if (q && matches) course.open = true;   // expand courses with results
+          if (matches) anyVisible = true;
+        });
+
+        empty.style.display = anyVisible ? 'none' : 'block';
+      });
+    })();
+  </script>
 
 </body>
 </html>
